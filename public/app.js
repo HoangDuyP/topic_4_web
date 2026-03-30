@@ -10,10 +10,7 @@ connection.start()
     .catch(err => {
         console.error("Connection failed:", err);
     });
-// nhận result từ agent
-connection.on("ReceiveMessage", (msg) => {
-    console.log("Message from Hub:", msg);
-});
+
 
 // gửi command
 function sendMessage() {
@@ -41,14 +38,30 @@ document.addEventListener("DOMContentLoaded", () => {
     });
     agentList.addEventListener("click", (e) => {
     const btn = e.target;
-    if (btn.id.startsWith("deleteTaskButton")) {
+    if (btn.id.startsWith("deleteAgentButton")) {
 
-        const agentNo = btn.id.replace("deleteTaskButton", "");
+        const agentNo = btn.id.replace("deleteAgentButton", "");
         const agentDiv = document.getElementById("agent-" + agentNo);
 
         if (agentDiv) {
             agentDiv.remove();
         }
     }
-});
+    });
+    const mailSource = document.getElementById("mail-template").innerHTML;
+    const mailTemplate = Handlebars.compile(mailSource);
+    const mailList = document.getElementById("mailContainer");
+    let mailCounter = 0;
+    connection.on("ReceiveMessage", (msg) => {
+    console.log("Message from Hub:", msg);
+
+    mailCounter++;
+
+    const html = mailTemplate({
+        id: mailCounter,
+        message: msg.ip   // ← lấy IP từ object
+    });
+
+    mailList.insertAdjacentHTML("beforeend", html);
+    });
 });

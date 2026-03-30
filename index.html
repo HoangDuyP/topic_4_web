@@ -54,7 +54,7 @@
         <div id="agent-{{agentNo}}" class="bg-black mb-2 p-2" style="width: 70%;">
             <div class="flex">
                 <p class="text-lg font-medium text-base mb-2">{{name}}</p>
-                <button id="deleteTaskButton{{agentNo}}" class="text-center bg-red-500 w-5 ml-auto">X</button>
+                <button id="deleteAgentButton{{agentNo}}" class="text-center bg-red-500 w-5 ml-auto">X</button>
             </div>
 
             <div class="flex mb-2">
@@ -100,9 +100,9 @@
     <script id="mail-template" type="text/x-handlebars-template">
         <div id="mail-{{id}}" class="flex mb-2">
             <input type="text" class="text-black grow pl-2" placeholder="New result..." value="{{message}}" readonly/>
-            <button id="downloadTaskButton${taskNo}" class="text-center bg-green-500 w-5 ml-2"><img
+            <button id="downloadContentButton{{mailNo}}" class="text-center bg-green-500 w-5 ml-2"><img
                 src="public/img/download.svg" alt="Download" class="w-full h-full p-1"></button>
-            <button id="deleteTaskButton${taskNo}" class="text-center bg-red-500 w-5 ml-2">X</button>
+            <button id="deleteMailButton{{mailNo}}" class="text-center bg-red-500 w-5 ml-2">X</button>
         </div>       
     </script>
 </body>
