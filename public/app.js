@@ -95,8 +95,9 @@ document.addEventListener("DOMContentLoaded", () => {
     });
     connection.on("ReceiveFile", (file) => {
         let mime = "application/octet-stream";
-
+        if(file.fileName.endsWith(".pdf")) mime = "application/pdf";
         if (file.fileName.endsWith(".png")) mime = "image/png";
+        if (file.fileName.endsWith(".jpg") || file.fileName.endsWith(".jpeg")) mime = "image/jpeg";
         if (file.fileName.endsWith(".txt")) mime = "text/plain";
         if (file.fileName.endsWith(".mp4")) mime = "video/mp4";
 
