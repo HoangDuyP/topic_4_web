@@ -1,5 +1,5 @@
 const connection = new signalR.HubConnectionBuilder()
-    .withUrl("https://xxxx.ngrok-free.app/hub")
+    .withUrl("https://semiprotected-aubrey-undevelopmentally.ngrok-free.dev/hub")
     .withAutomaticReconnect()
     .build();
 
