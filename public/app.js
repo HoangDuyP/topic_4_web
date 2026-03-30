@@ -43,7 +43,8 @@ document.addEventListener("DOMContentLoaded", () => {
         agentList.insertAdjacentHTML("beforeend", html);
     });
     agentList.addEventListener("click", (e) => {
-        const btn = e.target;
+        const btn = e.target.closest("button");
+        if (!btn) return;
         const cmd = btn.dataset.cmd;
         const ip = btn.dataset.ip;
         if (cmd && ip) {
