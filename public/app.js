@@ -1,14 +1,17 @@
 const connection = new signalR.HubConnectionBuilder()
-    .withUrl("https://semiprotected-aubrey-undevelopmentally.ngrok-free.dev/remoteHub")
+    .withUrl("https://abc123.ngrok-free.app/hub")
     .build();
 
-connection.on("ReceivePong", (agentId) => {
-    console.log("Pong from: " + agentId);
+connection.start()
+    .then(() => console.log("Connected"))
+    .catch(err => console.error(err));
+
+// nhận result từ agent
+connection.on("ReceiveResult", data => {
+    console.log("Result:", data);
 });
 
-connection.start();
-
-function ping() {
-    const agentId = document.getElementById("agentId").value;
-    connection.invoke("PingAgent", agentId);
+// gửi command
+function sendCommand(cmd) {
+    connection.invoke("SendCommand", cmd);
 }
