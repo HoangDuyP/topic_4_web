@@ -48,7 +48,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const cmd = btn.dataset.cmd;
         const ip = btn.dataset.ip;
         if (cmd && ip) {
-            if(cmd == "DOWNLOAD FILE" || cmd == "START APPLICATION" || cmd == "STOP APPLICATION" || cmd == "START PROCESS" || cmd == "STOP PROCESS") {
+            if(cmd == "get" || cmd == "startapp" || cmd == "stopapp" || cmd == "startprocess" || cmd == "stopprocess") {
                 const container = btn.closest("div");
                 const input = container.querySelector("input");
                 let value = "";
