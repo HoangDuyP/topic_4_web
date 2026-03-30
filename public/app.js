@@ -47,7 +47,15 @@ document.addEventListener("DOMContentLoaded", () => {
             agentDiv.remove();
         }
     }
+    if(btn.id.startsWith("deleteMailButton")){
+        const mailNo = btn.id.replace("deleteMailButton", "");
+        const mailDiv = document.getElementById("mail-" + mailNo);  
+        if (mailDiv) {
+            mailDiv.remove();
+        }  
+    }  
     });
+
     const mailSource = document.getElementById("mail-template").innerHTML;
     const mailTemplate = Handlebars.compile(mailSource);
     const mailList = document.getElementById("mailList");
