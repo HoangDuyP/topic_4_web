@@ -23,6 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const template = Handlebars.compile(source);
     const ip = document.getElementById("MachineIP");
     const agentList = document.getElementById("agentContainer");
+    // add machine chạy agent
     document.getElementById("addMachineButton").addEventListener("click", () => {
         const value = ip.value;
         if (value.trim() === "") return;
@@ -43,6 +44,13 @@ document.addEventListener("DOMContentLoaded", () => {
     });
     agentList.addEventListener("click", (e) => {
         const btn = e.target;
+        const cmd = btn.dataset.cmd;
+        const ip = btn.dataset.ip;
+        if (cmd && ip) {
+            console.log("Send:", cmd, "to", ip);
+            connection.invoke("SendCommandToAgent", ip, cmd)
+                .catch(err => console.error(err));
+        }
         if (btn.id.startsWith("deleteAgentButton")) {
 
             const agentNo = btn.id.replace("deleteAgentButton", "");
