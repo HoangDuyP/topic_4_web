@@ -20,7 +20,8 @@ function sendMessage() {
     connection.invoke("SendMessage", "Hello from Web")
         .catch(err => console.error(err));
 }
-let taskCounter = 0;
+document.addEventListener("DOMContentLoaded", () => {
+    let taskCounter = 0;
 
 // compile template 1 lần
 const source = document.getElementById("agent-template").innerHTML;
@@ -37,4 +38,5 @@ document.getElementById("addMachineButton").addEventListener("click", () => {
     const html = template(data);
 
     document.getElementById("agentContainer").insertAdjacentHTML("beforeend", html);
+});
 });
