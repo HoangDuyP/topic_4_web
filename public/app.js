@@ -20,3 +20,21 @@ function sendMessage() {
     connection.invoke("SendMessage", "Hello from Web")
         .catch(err => console.error(err));
 }
+let taskCounter = 0;
+
+// compile template 1 lần
+const source = document.getElementById("agent-template").innerHTML;
+const template = Handlebars.compile(source);
+
+document.getElementById("addMachineButton").addEventListener("click", () => {
+    taskCounter++;
+
+    const data = {
+        name: "Hoàng Duy PC",
+        taskNo: taskCounter
+    };
+
+    const html = template(data);
+
+    document.getElementById("agentContainer").insertAdjacentHTML("beforeend", html);
+});
