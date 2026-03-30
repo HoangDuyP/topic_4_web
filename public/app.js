@@ -22,21 +22,33 @@ function sendMessage() {
 }
 document.addEventListener("DOMContentLoaded", () => {
     let taskCounter = 0;
+    const source = document.getElementById("agent-template").innerHTML;
+    const template = Handlebars.compile(source);
+    const ip = document.getElementById("MachineIP");
+    const agentList = document.getElementById("agentContainer");
+    document.getElementById("addMachineButton").addEventListener("click", () => {
+        taskCounter++;
+        const value = ip.value;
+        if (value.trim() === "") return;
+        const data = {
+            name: value,
+            agentNo: taskCounter
+        };
 
-// compile template 1 lần
-const source = document.getElementById("agent-template").innerHTML;
-const template = Handlebars.compile(source);
+        const html = template(data);
 
-document.getElementById("addMachineButton").addEventListener("click", () => {
-    taskCounter++;
+        agentList.insertAdjacentHTML("beforeend", html);
+    });
+    agentList.addEventListener("click", (e) => {
+    const btn = e.target;
+    if (btn.id.startsWith("deleteTaskButton")) {
 
-    const data = {
-        name: "Hoàng Duy PC",
-        taskNo: taskCounter
-    };
+        const agentNo = btn.id.replace("deleteTaskButton", "");
+        const agentDiv = document.getElementById("agent-" + agentNo);
 
-    const html = template(data);
-
-    document.getElementById("agentContainer").insertAdjacentHTML("beforeend", html);
+        if (agentDiv) {
+            agentDiv.remove();
+        }
+    }
 });
 });
