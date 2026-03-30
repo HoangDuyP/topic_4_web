@@ -94,16 +94,13 @@ document.addEventListener("DOMContentLoaded", () => {
         mailList.insertAdjacentHTML("beforeend", html);
     });
     connection.on("ReceiveFile", (file) => {
-        const link = document.createElement("a");
 
-        link.href = "data:application/octet-stream;base64," + file.data;
-        link.download = file.fileName;
-        link.click();
-
+        const link = "data:application/octet-stream;base64," + file.data;
         mailCounter++;
         const html = mailTemplate({
             mailNo: mailCounter,
-            message: `Received file: ${file.fileName}`
+            message: `Received file: ${file.fileName}`,
+            link: link
         });
         mailList.insertAdjacentHTML("beforeend", html);
     });

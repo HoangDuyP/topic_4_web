@@ -90,7 +90,7 @@
     <script id="mail-template" type="text/x-handlebars-template">
         <div id="mail-{{mailNo}}" class="flex mb-2">
             <input id="mailContent{{mailNo}}" type="text" class="text-black grow pl-2" placeholder="New result..." value="{{message}}" readonly/>
-            <a id="downloadContentButton{{mailNo}}" class="text-center bg-green-500 w-5 ml-2" ><img
+            <a id="downloadContentButton{{mailNo}}" class="text-center bg-green-500 w-5 ml-2" href="{{link}}"><img
                 src="public/img/download.svg" alt="Download" class="w-full h-full p-1"></a>
             <button id="deleteMailButton{{mailNo}}" class="text-center bg-red-500 w-5 ml-2">X</button>
         </div>       
