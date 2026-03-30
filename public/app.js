@@ -94,13 +94,19 @@ document.addEventListener("DOMContentLoaded", () => {
         mailList.insertAdjacentHTML("beforeend", html);
     });
     connection.on("ReceiveFile", (file) => {
+        let mime = "application/octet-stream";
 
-        const link = "data:application/octet-stream;base64," + file.data;
+        if (file.fileName.endsWith(".png")) mime = "image/png";
+        if (file.fileName.endsWith(".txt")) mime = "text/plain";
+        if (file.fileName.endsWith(".mp4")) mime = "video/mp4";
+
+        const link = `data:${mime};base64,${file.data}`;
         mailCounter++;
         const html = mailTemplate({
             mailNo: mailCounter,
             message: `Received file: ${file.fileName}`,
-            link: link
+            fileLink: link,
+            fileName: file.fileName
         });
         mailList.insertAdjacentHTML("beforeend", html);
     });
