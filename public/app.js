@@ -47,9 +47,21 @@ document.addEventListener("DOMContentLoaded", () => {
         const cmd = btn.dataset.cmd;
         const ip = btn.dataset.ip;
         if (cmd && ip) {
-            console.log("Send:", cmd, "to", ip);
-            connection.invoke("SendCommandToAgent", ip, cmd)
+            if(cmd == "DOWNLOAD FILE" || cmd == "START APPLICATION" || cmd == "STOP APPLICATION" || cmd == "START PROCESS" || cmd == "STOP PROCESS") {
+                const container = btn.closest("div");
+                const input = container.querySelector("input");
+                let value = "";
+                if (input) {
+                    value = input.value;
+                }
+                const additionalCmd = `${cmd} ${value}`;
+                connection.invoke("SendCommandToAgent", ip, additionalCmd)
+                    .catch(err => console.error(err));
+                // Handle download file command
+            } else {
+                connection.invoke("SendCommandToAgent", ip, cmd)
                 .catch(err => console.error(err));
+            }
         }
         if (btn.id.startsWith("deleteAgentButton")) {
 

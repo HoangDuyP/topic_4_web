@@ -70,19 +70,19 @@
             </div>
 
             <div class="flex mb-2">
-                <input type="text" class="text-black pl-2" placeholder="Enter application name..." />
+                <input type="text" class="text-black pl-2" placeholder="Enter application name..." data-ip="{{name}}" data-cmd="APPLICATION" />
                 <button class="bg-green-500 rounded-sm p-2 ml-2 text-white font-bold" data-ip="{{name}}" data-cmd="START APPLICATION">START</button>
                 <button class="bg-red-500 rounded-sm p-2 ml-2 text-white font-bold" data-ip="{{name}}" data-cmd="STOP APPLICATION">STOP</button>
             </div>
 
             <div class="flex mb-2">
-                <input type="text" class="text-black pl-2" placeholder="Enter process name..." />
+                <input type="text" class="text-black pl-2" placeholder="Enter process name..." data-ip="{{name}}" data-cmd="PROCESS" />
                 <button class="bg-green-500 rounded-sm p-2 ml-2 text-white font-bold" data-ip="{{name}}" data-cmd="START PROCESS">START</button>
                 <button class="bg-red-500 rounded-sm p-2 ml-2 text-white font-bold" data-ip="{{name}}" data-cmd="STOP PROCESS">STOP</button>
             </div>
 
             <div class="flex mb-2">
-                <input type="text" class="text-black pl-2" placeholder="Enter FILE name..." />
+                <input id="fileNameInput" type="text" class="text-black pl-2" placeholder="Enter FILE name..." data-ip="{{name}}" data-cmd="FILE NAME"/>
                 <button class="bg-green-500 rounded-sm p-2 ml-2 text-white font-bold" data-ip="{{name}}" data-cmd="DOWNLOAD FILE">DOWNLOAD</button>
             </div>
         </div>
