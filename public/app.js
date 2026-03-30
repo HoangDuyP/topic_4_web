@@ -67,7 +67,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const html = mailTemplate({
             mailNo: mailCounter,
-            message: msg.ip   // ← lấy IP từ object
+            message: msg.message  // ← lấy IP từ object hoặc nội dung message
         });
 
         mailList.insertAdjacentHTML("beforeend", html);
