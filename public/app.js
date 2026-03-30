@@ -50,7 +50,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
     const mailSource = document.getElementById("mail-template").innerHTML;
     const mailTemplate = Handlebars.compile(mailSource);
-    const mailList = document.getElementById("mailContainer");
+    const mailList = document.getElementById("mailList");
     let mailCounter = 0;
     connection.on("ReceiveMessage", (msg) => {
     console.log("Message from Hub:", msg);
@@ -58,7 +58,7 @@ document.addEventListener("DOMContentLoaded", () => {
     mailCounter++;
 
     const html = mailTemplate({
-        id: mailCounter,
+        mailNo: mailCounter,
         message: msg.ip   // ← lấy IP từ object
     });
 
