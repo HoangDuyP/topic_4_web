@@ -27,21 +27,9 @@
                                 src="public/img/download.svg" alt="Download" class="w-full h-full p-1"></button>
                         <button id="deleteTaskButton${taskNo}" class="text-center bg-red-500 w-5 ml-2">X</button>
                     </div>
-                    <div class="flex  mb-2">
-                        <input type="text" class="text-black grow pl-2" placeholder="New task..." />
-                        <button id="downloadTaskButton${taskNo}" class="text-center bg-green-500 w-5 ml-2"><img
-                                src="public/img/download.svg" alt="Download" class="w-full h-full p-1"></button>
-                        <button id="deleteTaskButton${taskNo}" class="text-center bg-red-500 w-5 ml-2">X</button>
-                    </div>
-                    <div class="flex  mb-2">
-                        <input type="text" class="text-black grow pl-2" placeholder="New task..." />
-                        <button id="downloadTaskButton${taskNo}" class="text-center bg-green-500 w-5 ml-2"><img
-                                src="public/img/download.svg" alt="Download" class="w-full h-full p-1"></button>
-                        <button id="deleteTaskButton${taskNo}" class="text-center bg-red-500 w-5 ml-2">X</button>
-                    </div>
                 </div>
             </div>
-            <div id = "agentContainer" class=" flex flex-col text-sm text-white ml-3" style="width: 70%;">
+            <div id="agentContainer" class=" flex flex-col text-sm text-white ml-3" style="width: 70%;">
                 <div class="flex">
                     <p class="text-lg font-bold text-2xl mb-2">Danh sách máy</p>
                     <div class="flex  ml-auto mb-2 mr-4">
@@ -51,7 +39,7 @@
                     </div>
                 </div>
 
-                
+
 
             </div>
         </main>
@@ -63,52 +51,60 @@
         </footer>
     </div>
     <script id="agent-template" type="text/x-handlebars-template">
-    <div id="agent-{{agentNo}}" class="bg-black mb-2 p-2" style="width: 70%;">
-        <div class="flex">
-            <p class="text-lg font-medium text-base mb-2">{{name}}</p>
-            <button id="deleteTaskButton{{agentNo}}" class="text-center bg-red-500 w-5 ml-auto">X</button>
-        </div>
+        <div id="agent-{{agentNo}}" class="bg-black mb-2 p-2" style="width: 70%;">
+            <div class="flex">
+                <p class="text-lg font-medium text-base mb-2">{{name}}</p>
+                <button id="deleteTaskButton{{agentNo}}" class="text-center bg-red-500 w-5 ml-auto">X</button>
+            </div>
 
-        <div class="flex mb-2">
-            <button class="bg-green-500 rounded-sm p-2 text-white font-bold">LIST APPLICATIONS</button>
-            <button class="bg-green-500 rounded-sm p-2 ml-2 text-white font-bold">LIST PROCESSES</button>
-            <button class="bg-green-500 rounded-sm p-2 ml-2 text-white font-bold">SCREENSHOT</button>
-            <button class="bg-green-500 rounded-sm p-2 ml-2 text-white font-bold">PING</button>
-        </div>
+            <div class="flex mb-2">
+                <button class="bg-green-500 rounded-sm p-2 text-white font-bold">LIST APPLICATIONS</button>
+                <button class="bg-green-500 rounded-sm p-2 ml-2 text-white font-bold">LIST PROCESSES</button>
+                <button class="bg-green-500 rounded-sm p-2 ml-2 text-white font-bold">SCREENSHOT</button>
+                <button class="bg-green-500 rounded-sm p-2 ml-2 text-white font-bold">PING</button>
+            </div>
 
-        <div class="flex mb-2">
-            <button class="bg-orange-500 rounded-sm p-2 text-white font-bold">RESET PC</button>
-            <button class="bg-red-500 rounded-sm p-2 ml-2 text-white font-bold">SHUTDOWN PC</button>
-        </div>
+            <div class="flex mb-2">
+                <button class="bg-orange-500 rounded-sm p-2 text-white font-bold">RESET PC</button>
+                <button class="bg-red-500 rounded-sm p-2 ml-2 text-white font-bold">SHUTDOWN PC</button>
+            </div>
 
-        <div class="flex mb-2">
-            <button class="bg-green-500 rounded-sm p-2 text-white font-bold">START KEYLOG</button>
-            <button class="bg-red-500 rounded-sm p-2 ml-2 text-white font-bold">STOP KEYLOG</button>
-        </div>
+            <div class="flex mb-2">
+                <button class="bg-green-500 rounded-sm p-2 text-white font-bold">START KEYLOG</button>
+                <button class="bg-red-500 rounded-sm p-2 ml-2 text-white font-bold">STOP KEYLOG</button>
+            </div>
 
-        <div class="flex mb-2">
-            <button class="bg-green-500 rounded-sm p-2 text-white font-bold">START WEBCAM</button>
-            <button class="bg-red-500 rounded-sm p-2 ml-2 text-white font-bold">STOP WEBCAM</button>
-        </div>
+            <div class="flex mb-2">
+                <button class="bg-green-500 rounded-sm p-2 text-white font-bold">START WEBCAM</button>
+                <button class="bg-red-500 rounded-sm p-2 ml-2 text-white font-bold">STOP WEBCAM</button>
+            </div>
 
-        <div class="flex mb-2">
-            <input type="text" class="text-black pl-2" placeholder="Enter application name..." />
-            <button class="bg-green-500 rounded-sm p-2 ml-2 text-white font-bold">START</button>
-            <button class="bg-red-500 rounded-sm p-2 ml-2 text-white font-bold">STOP</button>
-        </div>
+            <div class="flex mb-2">
+                <input type="text" class="text-black pl-2" placeholder="Enter application name..." />
+                <button class="bg-green-500 rounded-sm p-2 ml-2 text-white font-bold">START</button>
+                <button class="bg-red-500 rounded-sm p-2 ml-2 text-white font-bold">STOP</button>
+            </div>
 
-        <div class="flex mb-2">
-            <input type="text" class="text-black pl-2" placeholder="Enter process name..." />
-            <button class="bg-green-500 rounded-sm p-2 ml-2 text-white font-bold">START</button>
-            <button class="bg-red-500 rounded-sm p-2 ml-2 text-white font-bold">STOP</button>
-        </div>
+            <div class="flex mb-2">
+                <input type="text" class="text-black pl-2" placeholder="Enter process name..." />
+                <button class="bg-green-500 rounded-sm p-2 ml-2 text-white font-bold">START</button>
+                <button class="bg-red-500 rounded-sm p-2 ml-2 text-white font-bold">STOP</button>
+            </div>
 
-        <div class="flex mb-2">
-            <input type="text" class="text-black pl-2" placeholder="Enter FILE name..." />
-            <button class="bg-green-500 rounded-sm p-2 ml-2 text-white font-bold">DOWNLOAD</button>
+            <div class="flex mb-2">
+                <input type="text" class="text-black pl-2" placeholder="Enter FILE name..." />
+                <button class="bg-green-500 rounded-sm p-2 ml-2 text-white font-bold">DOWNLOAD</button>
+            </div>
         </div>
-    </div>
-</script>
+    </script>
+    <script id="mail-template" type="text/x-handlebars-template">
+        <div id="mail-{{id}}" class="flex mb-2">
+            <input type="text" class="text-black grow pl-2" placeholder="New result..." value="{{message}}" readonly/>
+            <button id="downloadTaskButton${taskNo}" class="text-center bg-green-500 w-5 ml-2"><img
+                src="public/img/download.svg" alt="Download" class="w-full h-full p-1"></button>
+            <button id="deleteTaskButton${taskNo}" class="text-center bg-red-500 w-5 ml-2">X</button>
+        </div>       
+    </script>
 </body>
 
 </html>
