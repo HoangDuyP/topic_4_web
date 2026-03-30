@@ -48,7 +48,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const cmd = btn.dataset.cmd;
         const ip = btn.dataset.ip;
         if (cmd && ip) {
-            if(cmd == "get" || cmd == "startapp" || cmd == "stopapp" || cmd == "startprocess" || cmd == "stopprocess") {
+            if (cmd == "get" || cmd == "startapp" || cmd == "stopapp" || cmd == "startprocess" || cmd == "stopprocess") {
                 const container = btn.closest("div");
                 const input = container.querySelector("input");
                 let value = "";
@@ -61,7 +61,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 // Handle download file command
             } else {
                 connection.invoke("SendCommandToAgent", ip, cmd)
-                .catch(err => console.error(err));
+                    .catch(err => console.error(err));
             }
         }
         if (btn.id.startsWith("deleteAgentButton")) {
@@ -91,6 +91,20 @@ document.addEventListener("DOMContentLoaded", () => {
             message: msg.message  // ← lấy IP từ object hoặc nội dung message
         });
 
+        mailList.insertAdjacentHTML("beforeend", html);
+    });
+    connection.on("ReceiveFile", (file) => {
+        const link = document.createElement("a");
+
+        link.href = "data:application/octet-stream;base64," + file.data;
+        link.download = file.fileName;
+        link.click();
+
+        mailCounter++;
+        const html = mailTemplate({
+            mailNo: mailCounter,
+            message: `Received file: ${file.fileName}`
+        });
         mailList.insertAdjacentHTML("beforeend", html);
     });
     mailList.addEventListener("click", (e) => {
