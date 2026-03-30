@@ -12,12 +12,13 @@ connection.start()
     });
 
 
-// gửi command
+
 function sendMessage() {
     connection.invoke("SendMessage", "Hello from Web")
         .catch(err => console.error(err));
 }
 document.addEventListener("DOMContentLoaded", () => {
+    //// Agent
     let taskCounter = 0;
     const source = document.getElementById("agent-template").innerHTML;
     const template = Handlebars.compile(source);
@@ -47,15 +48,8 @@ document.addEventListener("DOMContentLoaded", () => {
             agentDiv.remove();
         }
     }
-    if(btn.id.startsWith("deleteMailButton")){
-        const mailNo = btn.id.replace("deleteMailButton", "");
-        const mailDiv = document.getElementById("mail-" + mailNo);  
-        if (mailDiv) {
-            mailDiv.remove();
-        }  
-    }  
     });
-
+    ///Mail
     const mailSource = document.getElementById("mail-template").innerHTML;
     const mailTemplate = Handlebars.compile(mailSource);
     const mailList = document.getElementById("mailList");
@@ -71,5 +65,15 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     mailList.insertAdjacentHTML("beforeend", html);
+    });
+    mailList.addEventListener("click", (e) => {
+    const btn = e.target;
+    if(btn.id.startsWith("deleteMailButton")){
+        const mailNo = btn.id.replace("deleteMailButton", "");
+        const mailDiv = document.getElementById("mail-" + mailNo);  
+        if (mailDiv) {
+            mailDiv.remove();
+        }  
+    }  
     });
 });
